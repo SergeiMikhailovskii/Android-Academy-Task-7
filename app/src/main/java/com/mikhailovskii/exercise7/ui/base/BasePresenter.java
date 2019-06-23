@@ -1,8 +1,11 @@
 package com.mikhailovskii.exercise7.ui.base;
 
+import io.reactivex.disposables.CompositeDisposable;
+
 public class BasePresenter<View> implements MvpPresenter<View> {
 
-    private View view;
+    public View view;
+    public CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     @Override
     public void attachView(View view) {
@@ -12,6 +15,7 @@ public class BasePresenter<View> implements MvpPresenter<View> {
     @Override
     public void detachView() {
         view = null;
+        compositeDisposable.clear();
     }
 
 }

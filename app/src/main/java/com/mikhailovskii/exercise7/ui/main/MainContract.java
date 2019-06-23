@@ -7,7 +7,7 @@ public interface MainContract {
 
     interface MainView extends MvpView {
 
-        void onPhotosLoaded();
+        void onPhotosLoaded(String url, String description);
 
         void onPhotosLoadingFailed();
 
