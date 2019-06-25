@@ -23,4 +23,6 @@ public class PhotosAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return PHOTOS_COUNT;
     }
+
+
 }

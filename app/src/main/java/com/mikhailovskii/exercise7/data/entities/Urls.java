@@ -11,8 +11,4 @@ public class Urls {
         return regular;
     }
 
-    public void setRegular(String regular) {
-        this.regular = regular;
-    }
-
 }

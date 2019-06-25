@@ -1,6 +1,6 @@
 package com.mikhailovskii.exercise7.data.api;
 
-import com.mikhailovskii.exercise7.data.entities.Photo;
+import com.mikhailovskii.exercise7.data.entities.PhotoCollection;
 
 import java.util.List;
 
@@ -9,6 +9,7 @@ import retrofit2.http.GET;
 
 public interface PhotosAPI {
 
-    @GET("/collections/curated")
-    Observable<List<Photo>> getPhoto();
+    @GET("/collections/featured")
+    Observable<List<PhotoCollection>> getPhoto();
+
 }

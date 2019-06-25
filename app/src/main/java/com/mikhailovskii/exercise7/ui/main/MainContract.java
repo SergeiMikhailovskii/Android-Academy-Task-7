@@ -17,6 +17,8 @@ public interface MainContract {
 
         void loadPhotoList();
 
+        void getImageFromList(int page);
+
     }
 
 }
