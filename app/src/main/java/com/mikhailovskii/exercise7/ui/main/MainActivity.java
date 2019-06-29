@@ -22,7 +22,7 @@ public class MainActivity extends FragmentActivity {
         pagerAdapter = new PhotosAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
 
-        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int i, float v, int i1) {
 
