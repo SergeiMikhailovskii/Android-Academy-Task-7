@@ -4,9 +4,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +25,7 @@ public class PageFragment extends Fragment implements PageContract.PageView {
     private TextView mTvTitle;
     private TextView mTvDescription;
     private ImageView mIvContent;
+    private FrameLayout mFrameLayout;
 
     private int page;
 
@@ -50,6 +53,7 @@ public class PageFragment extends Fragment implements PageContract.PageView {
         mTvTitle = view.findViewById(R.id.tv_page_title);
         mTvDescription = view.findViewById(R.id.tv_description);
         mIvContent = view.findViewById(R.id.iv_content);
+        mFrameLayout = view.findViewById(R.id.fragment_place);
 
         mTvTitle.setText(String.valueOf(page));
 

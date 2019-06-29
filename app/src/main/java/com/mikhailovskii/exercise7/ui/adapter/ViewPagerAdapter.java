@@ -6,11 +6,11 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.mikhailovskii.exercise7.ui.page.PageFragment;
 
-public class PhotosAdapter extends FragmentPagerAdapter {
+public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     private static final int PHOTOS_COUNT = 10;
 
-    public PhotosAdapter(FragmentManager fm) {
+    public ViewPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 

@@ -17,4 +17,7 @@ public interface PhotosAPI {
     @GET("/photos/{id}")
     Observable<Photo> getPhoto(@Path("id") String id);
 
+    @GET("/collections/{id}/photos")
+    Observable<PhotoCollection> getCollection(@Path("id") String id);
+
 }

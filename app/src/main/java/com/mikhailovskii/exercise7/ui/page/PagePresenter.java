@@ -15,11 +15,15 @@ public class PagePresenter extends BasePresenter<PageContract.PageView> implemen
                 .doOnSubscribe(it -> view.showLoadingIndicator(true))
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate(() -> view.showLoadingIndicator(false))
-                .subscribe(result ->
-                        view.onImageLoaded(result.get(i).getPhotos().get(0).urls.getRegular(),
-                        result.get(i).getTitle(),
-                        result.get(i).getDescription(),
-                        result.get(i).getId())
+                .subscribe((
+                                result -> view.onImageLoaded(result.get(i).getPhotos().get(0).urls.getRegular(),
+                                        result.get(i).getTitle(),
+                                        result.get(i).getDescription(),
+                                        result.get(i).getId())
+                        ),
+                        (
+                                throwable -> view.onDescriptionLoginFailed()
+                        )
                 )
         );
     }
