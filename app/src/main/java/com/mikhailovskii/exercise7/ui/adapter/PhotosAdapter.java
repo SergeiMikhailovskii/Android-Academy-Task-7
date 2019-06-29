@@ -8,7 +8,7 @@ import com.mikhailovskii.exercise7.ui.page.PageFragment;
 
 public class PhotosAdapter extends FragmentPagerAdapter {
 
-    public static final int PHOTOS_COUNT = 4;
+    private static final int PHOTOS_COUNT = 10;
 
     public PhotosAdapter(FragmentManager fm) {
         super(fm);

@@ -9,7 +9,7 @@ public class PhotoCollection {
 
     @SerializedName("id")
     @Expose
-    private int id;
+    private String id;
 
     @SerializedName("title")
     @Expose
@@ -27,7 +27,7 @@ public class PhotoCollection {
         return photos;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 

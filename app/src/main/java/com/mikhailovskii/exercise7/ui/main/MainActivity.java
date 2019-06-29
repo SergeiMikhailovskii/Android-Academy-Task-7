@@ -10,7 +10,6 @@ import com.mikhailovskii.exercise7.ui.adapter.PhotosAdapter;
 
 public class MainActivity extends FragmentActivity {
 
-
     private ViewPager viewPager;
     private PagerAdapter pagerAdapter;
 

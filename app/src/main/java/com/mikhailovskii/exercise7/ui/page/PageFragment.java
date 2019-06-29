@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.mikhailovskii.exercise7.R;
@@ -52,23 +53,24 @@ public class PageFragment extends Fragment implements PageContract.PageView {
 
         mTvTitle.setText(String.valueOf(page));
 
-        presenter.loadImage(page);
+        presenter.loadCollection(page);
 
         return view;
     }
 
 
     @Override
-    public void onImageLoaded(String url, String id) {
+    public void onImageLoaded(String url, String title, String description, String id) {
         Glide.with(this)
                 .load(url)
                 .into(mIvContent);
-        presenter.loadDescription(id);
+        mTvTitle.setText(title);
+        mTvDescription.setText(description);
     }
 
     @Override
     public void onImageLoadingFailed() {
-
+        Toast.makeText(getContext(), "Image loading failed", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -78,7 +80,7 @@ public class PageFragment extends Fragment implements PageContract.PageView {
 
     @Override
     public void onDescriptionLoginFailed() {
-
+        Toast.makeText(getContext(), "Description loading failed", Toast.LENGTH_SHORT).show();
     }
 
     @Override

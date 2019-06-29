@@ -9,13 +9,18 @@ import io.reactivex.schedulers.Schedulers;
 public class PagePresenter extends BasePresenter<PageContract.PageView> implements PageContract.PagePresenter {
 
     @Override
-    public void loadImage(int i) {
+    public void loadCollection(int i) {
         compositeDisposable.add(PhotosAPIFactory.getInstance().getAPIService().getPhotos()
                 .subscribeOn(Schedulers.io())
                 .doOnSubscribe(it -> view.showLoadingIndicator(true))
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate(() -> view.showLoadingIndicator(false))
-                .subscribe(result -> view.onImageLoaded(result.get(0).getPhotos().get(i).urls.getRegular(), result.get(0).getPhotos().get(i).getId()))
+                .subscribe(result ->
+                        view.onImageLoaded(result.get(i).getPhotos().get(0).urls.getRegular(),
+                        result.get(i).getTitle(),
+                        result.get(i).getDescription(),
+                        result.get(i).getId())
+                )
         );
     }
 
