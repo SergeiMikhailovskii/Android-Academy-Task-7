@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Exercise 7</string>
+    <string name="view_collection">View collection</string>
+    <string name="image_loading_failed">Image loading failed</string>
+    <string name="preview_loaded">Preview loaded</string>
+    <string name="preview_loading_failed">Preview loading failed</string>
 </resources>

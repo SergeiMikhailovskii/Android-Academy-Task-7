@@ -15,29 +15,36 @@ public class PagePresenter extends BasePresenter<PageContract.PageView> implemen
                 .doOnSubscribe(it -> view.showLoadingIndicator(true))
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate(() -> view.showLoadingIndicator(false))
-                .subscribe((
+                .subscribe(
+                        (
                                 result -> view.onImageLoaded(result.get(i).getPhotos().get(0).urls.getRegular(),
                                         result.get(i).getTitle(),
                                         result.get(i).getDescription(),
                                         result.get(i).getId())
                         ),
                         (
-                                throwable -> view.onDescriptionLoginFailed()
+                                throwable -> view.onImageLoadingFailed()
                         )
                 )
         );
     }
 
     @Override
-    public void loadDescription(String id) {
-        compositeDisposable.add(PhotosAPIFactory.getInstance().getAPIService().getPhoto(id)
+    public void loadPreviewPhotos(String id) {
+        compositeDisposable.add(PhotosAPIFactory.getInstance().getAPIService().getCollection(id)
                 .subscribeOn(Schedulers.io())
                 .doOnSubscribe(it -> view.showLoadingIndicator(true))
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate(() -> view.showLoadingIndicator(false))
-                .subscribe(result -> view.onDescriptionLoaded(result.getDescription()))
+                .subscribe(
+                        (
+                                result -> view.onPreviewLoaded(result)
+                        ),
+                        (
+                                throwable -> view.onPreviewLoadingFailed()
+                        )
+                )
         );
     }
-
 
 }

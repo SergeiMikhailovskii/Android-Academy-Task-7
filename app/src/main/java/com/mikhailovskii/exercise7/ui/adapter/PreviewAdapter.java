@@ -37,7 +37,6 @@ public class PreviewAdapter extends RecyclerView.Adapter<PreviewAdapter.ViewHold
                 .into(viewHolder.mImageView);
     }
 
-
     @Override
     public int getItemCount() {
         return photos.size();
@@ -48,7 +47,7 @@ public class PreviewAdapter extends RecyclerView.Adapter<PreviewAdapter.ViewHold
         return position;
     }
 
-    public void setData(List<Photo> photos){
+    public void updateData(List<Photo> photos) {
         this.photos.clear();
         this.photos.addAll(photos);
         notifyDataSetChanged();

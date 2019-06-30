@@ -12,6 +12,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PhotosAPIFactory {
 
+    private static final String AUTHORIZATION_HEADER = "Authorization";
+    private static final String AUTHORIZATION_VALUE = "Client-ID 6ffda649e9e02face25fab40d54be28f529c40de8d509459b3aa3304ec3f6146";
+    private static final String BASE_URL = "https://api.unsplash.com";
+
     private static PhotosAPIFactory mInstance;
     private Retrofit mRetrofit;
 
@@ -28,7 +32,7 @@ public class PhotosAPIFactory {
         httpClient.addInterceptor(chain -> {
             Request original = chain.request();
             Request requestBuilder = original.newBuilder()
-                    .header("Authorization", "Client-ID 6ffda649e9e02face25fab40d54be28f529c40de8d509459b3aa3304ec3f6146")
+                    .header(AUTHORIZATION_HEADER, AUTHORIZATION_VALUE)
                     .method(original.method(), original.body())
                     .build();
 
@@ -36,7 +40,7 @@ public class PhotosAPIFactory {
         });
 
         mRetrofit = new Retrofit.Builder()
-                .baseUrl("https://api.unsplash.com")
+                .baseUrl(BASE_URL)
                 .client(httpClient.build())
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

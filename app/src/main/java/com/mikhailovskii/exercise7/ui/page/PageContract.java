@@ -1,7 +1,10 @@
 package com.mikhailovskii.exercise7.ui.page;
 
+import com.mikhailovskii.exercise7.data.entities.Photo;
 import com.mikhailovskii.exercise7.ui.base.MvpPresenter;
 import com.mikhailovskii.exercise7.ui.base.MvpView;
+
+import java.util.List;
 
 public interface PageContract {
 
@@ -11,9 +14,9 @@ public interface PageContract {
 
         void onImageLoadingFailed();
 
-        void onDescriptionLoaded(String description);
+        void onPreviewLoaded(List<Photo> photos);
 
-        void onDescriptionLoginFailed();
+        void onPreviewLoadingFailed();
 
     }
 
@@ -21,7 +24,7 @@ public interface PageContract {
 
         void loadCollection(int i);
 
-        void loadDescription(String id);
+        void loadPreviewPhotos(String id);
 
     }
 
