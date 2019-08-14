@@ -12,9 +12,9 @@ import retrofit2.http.Path;
 public interface PhotosAPI {
 
     @GET("/collections/featured")
-    Observable<List<PhotoCollection>> getPhotos();
+    Observable<List<PhotoCollection>> getPhotoCollections();
 
     @GET("/collections/{id}/photos")
-    Observable<List<Photo>> getCollection(@Path("id") String id);
+    Observable<List<Photo>> getPhotos(@Path("id") String id);
 
 }

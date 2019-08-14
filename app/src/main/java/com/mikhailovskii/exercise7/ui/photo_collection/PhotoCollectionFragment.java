@@ -1,4 +1,4 @@
-package com.mikhailovskii.exercise7.ui.page;
+package com.mikhailovskii.exercise7.ui.photo_collection;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -25,11 +25,11 @@ import com.mikhailovskii.exercise7.ui.adapter.PreviewAdapter;
 
 import java.util.List;
 
-public class PageFragment extends Fragment implements PageContract.PageView {
+public class PhotoCollectionFragment extends Fragment implements PhotoCollectionContract.PageView {
 
     public static final String ARGUMENT_PAGE_NUMBER = "arg_page_number";
 
-    private PagePresenter presenter = new PagePresenter();
+    private PhotoCollectionPresenter presenter = new PhotoCollectionPresenter();
 
     private TextView mTvTitle;
     private TextView mTvDescription;
@@ -45,12 +45,12 @@ public class PageFragment extends Fragment implements PageContract.PageView {
     private int page;
     private String mId;
 
-    public static PageFragment newInstance(int page) {
-        PageFragment pageFragment = new PageFragment();
+    public static PhotoCollectionFragment newInstance(int page) {
+        PhotoCollectionFragment photoCollectionFragment = new PhotoCollectionFragment();
         Bundle args = new Bundle();
         args.putInt(ARGUMENT_PAGE_NUMBER, page);
-        pageFragment.setArguments(args);
-        return pageFragment;
+        photoCollectionFragment.setArguments(args);
+        return photoCollectionFragment;
     }
 
     @Override
@@ -91,7 +91,7 @@ public class PageFragment extends Fragment implements PageContract.PageView {
 
         mListPreview.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
-        presenter.loadCollection(page);
+        presenter.loadPhotoCollections(page);
 
         return view;
     }

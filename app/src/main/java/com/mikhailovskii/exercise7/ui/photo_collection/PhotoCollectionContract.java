@@ -1,4 +1,4 @@
-package com.mikhailovskii.exercise7.ui.page;
+package com.mikhailovskii.exercise7.ui.photo_collection;
 
 import com.mikhailovskii.exercise7.data.entities.Photo;
 import com.mikhailovskii.exercise7.ui.base.MvpPresenter;
@@ -6,7 +6,7 @@ import com.mikhailovskii.exercise7.ui.base.MvpView;
 
 import java.util.List;
 
-public interface PageContract {
+public interface PhotoCollectionContract {
 
     interface PageView extends MvpView {
 
@@ -22,7 +22,7 @@ public interface PageContract {
 
     interface PagePresenter extends MvpPresenter<PageView> {
 
-        void loadCollection(int i);
+        void loadPhotoCollections(int i);
 
         void loadPreviewPhotos(String id);
 
